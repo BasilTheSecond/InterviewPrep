@@ -32,16 +32,18 @@ int sockMerchant(int n, vector<int> ar) {
     return pairs;
 }
 
-int main()
+void test(const char* path)
 {
+    cout << "Test " << path << "\n";
     //ofstream fout(getenv("OUTPUT_PATH"));
+    std::ifstream ifs(path, std::ifstream::in);
 
     int n;
-    cin >> n;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    ifs >> n;
+    ifs.ignore(numeric_limits<streamsize>::max(), '\n');
 
     string ar_temp_temp;
-    getline(cin, ar_temp_temp);
+    getline(ifs, ar_temp_temp);
 
     vector<string> ar_temp = split_string(ar_temp_temp);
 
@@ -54,10 +56,20 @@ int main()
     }
 
     int result = sockMerchant(n, ar);
-
+    cout << "Input" << "\n";
+    cout << n << "\n";
+    for (auto e : ar)
+        cout << e << "\n";
+    cout << "Outputs" << "\n";
     cout << result << "\n";
 
     //fout.close();
+}
+
+int main()
+{
+    test("../SockMerchant/sock-merchant-testcases/input/input00.txt");
+    test("../SockMerchant/sock-merchant-testcases/input/input08.txt");
 
     return 0;
 }
