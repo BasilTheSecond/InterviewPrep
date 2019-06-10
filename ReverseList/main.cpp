@@ -6,22 +6,33 @@ struct linkedlist
     struct linkedlist* next;
 };
 
+struct linkedlist* rest(struct linkedlist* head)
+{
+    if (head)
+        head = head->next;
+    return head;
+}
+
+struct linkedlist* add(struct linkedlist* node, struct linkedlist* list)
+{
+    if (node)
+    {
+        node->next = list;
+        list = node;
+    }
+    return list;
+}
+
 struct linkedlist* reverse(struct linkedlist* head)
 {
-    struct linkedlist* reverseHead = head;
-    if (reverseHead)
+    struct linkedlist* result = NULL;
+    while (head)
     {
-        struct linkedlist* node = reverseHead->next;
-        reverseHead->next = NULL;
-        while (node)
-        {
-            struct linkedlist* tmp = node->next;
-            node->next = reverseHead;
-            reverseHead = node;
-            node = tmp;
-        }
+        struct linkedlist* node = head;
+        head = rest(head);
+        result = add(node, result);
     }
-    return reverseHead;
+    return result;
 }
 
 void print(struct linkedlist* head)
