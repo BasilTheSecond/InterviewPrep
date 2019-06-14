@@ -79,8 +79,7 @@ int main()
 
     int n5 = 7;
     const char* test5 = "Test 5";
-    test(test5, n5
-         );
+    test(test5, n5);
 
     return 0;
 }
