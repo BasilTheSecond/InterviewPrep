@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -23,13 +24,49 @@ void permute(vector<vector<int>>& list, vector<int> v, int i)
     }
 }
 
+void permute2(vector<vector<int>>& list, vector<int> v, int i)
+{
+    stack<pair<int, vector<int>>> s;
+    pair<int, vector<int>> p;
+    p.first = i;
+    p.second = v;
+    s.push(p);
+    while (s.size())
+    {
+        p = s.top();
+        s.pop();
+        i = p.first;
+        v = p.second;
+
+        if(i > v.size() / 2)
+            list.push_back(v);
+        else
+        {
+            for (int j = 0; j + i + 1 < v.size(); j++)
+            {
+                if (v[j] == 0 && v[j + i + 1] == 0)
+                {
+                    vector<int> v1;
+                    v1.resize(v.size());
+                    v1 = v;
+                    v1[j] = v1[j + i + 1] = i;
+                    p.first = i + 1;
+                    p.second = v1;
+                    s.push(p);
+                }
+            }
+        }
+    }
+}
+
 void find_permutations(vector<vector<int>>& list, int n)
 {
     vector<int> v;
     v.resize(2 * n);
     for (auto e : v)
         e = 0;
-    permute(list, v, 1);
+    //permute(list, v, 1);
+    permute2(list, v, 1);
 }
 
 void print_permutations(vector<vector<int>>& list)
