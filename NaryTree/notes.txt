@@ -1,0 +1,3 @@
+- Traverse n-ary tree
+- Count all occurences of values 0, 7 and 3
+
