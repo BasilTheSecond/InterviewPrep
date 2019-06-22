@@ -1,0 +1,8 @@
+https://www.careercup.com/question?id=5750713720766464
+
+
+k=2, l=[1,2,3,4,5,6]
+output: l=[5,6,1,2,3,4]
+In place O(1) space complexity
+
+
