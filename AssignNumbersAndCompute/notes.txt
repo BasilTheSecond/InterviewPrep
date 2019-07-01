@@ -1,0 +1,7 @@
+https://www.careercup.com/question?id=5162634763567104
+
+Given a string separated by a space like "123456 abc+efg" determine
+the solution by mapping integers to letters like a:1, b:2, c:3, d:4, e:5, f:6.
+The only operations allowed were + or -. So the calculated solution
+that made the tests pass was 123+456 = 579.
+
