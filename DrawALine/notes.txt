@@ -1,0 +1,13 @@
+Given an bit array draw a horizontal line
+
+For example:
+
+h = 2, w = 16 
+
+From (6, 1) to (10, 2) 
+
+00000000 00000000
+00000011 11100000
+
+
+
