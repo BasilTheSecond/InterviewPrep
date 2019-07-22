@@ -71,7 +71,8 @@ void msort(vector<int>& v)
             s.pop();
             vector<int> v2 = s2.top().v;
             s2.pop();
-            vector<int> vv = s.top().v;
+            vector<int> vv;
+            vv.resize(s.top().v.size());
             s.pop();
             merge(vv, v1, v2);
             s2.push(Item(vv, true));
